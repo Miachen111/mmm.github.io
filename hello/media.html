@@ -7,15 +7,29 @@
   box-sizing: border-box;
 }
 
+.column1{
+    width: 100%;
+}
+
 /* Create four equal columns that floats next to each other */
-.column {
+.column2 {
   float: left;
-  width: 25%;
+  width: 33%;
   padding: 20px;
 }
 
 /* Clear floats after the columns */
-.row:after {
+.row2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column3{
+  width:50%;
+  padding: 20px;
+}
+.row3{
   content: "";
   display: table;
   clear: both;
@@ -36,20 +50,33 @@
 }
 </style>
 </head>
-<body>
+<body> 
+<div class="column1" style="background-color: greenyellow;">
 
+<div class="row2">
+  <div class="column2" style="background-color:#3bdce1">
+  </div>
+  
+  <div class="column2" style="background-color:#3bdce1">
+  </div>
+  
+  <div class="column2" style="background-color:#3bdce1">
+  </div>
+  
+</div>
+<div class="row3">
+  <div class="column3" style="background-color:#c9e0e1">
+  </div>
 
-<div class="row">
-  <div class="column" style="background-color:#3bdce1">
+  <div class="column3" style="background-color:#c9e0e1">
   </div>
-  
-  <div class="column" style="background-color:#3bdce1">
+
+  <div class="column3" style="background-color:#c9e0e1">
   </div>
-  
-  <div class="column" style="background-color:#3bdce1">
+
+  <div class="column3" style="background-color:#c9e0e1">
   </div>
-  
-  
+
 </div>
 
 </body>
