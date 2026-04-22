@@ -5,53 +5,59 @@
 <style>
   * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 
 
 
-  /* 通用的 Row 設定：使用 Flexbox */
   .row {
     display: flex;
-    flex-wrap: wrap; /* 讓內容可以換行 */
-    gap: 10px;       /* 區塊之間的間距 */
+    flex-wrap: wrap; /* 允許換行 */
+    gap: 10px;
     margin-bottom: 10px;
   }
 
-  /* 各個區塊的基礎樣式 */
   .box {
-    height: 100px; /* 設定一個高度才看得到顏色 */
-    border-radius: 5px;
+    border-radius: 4px;
+    min-height: 80px;
   }
 
-  /* 綠色頂部：永遠 100% */
-  .header-box {
+  /* 1. 頂部綠色區塊：永遠佔滿 100% */
+  .green-header {
     width: 100%;
     background-color: #badc58;
+    height: 120px;
+  }
+
+  /* 2. 中間藍色區塊：大螢幕時三欄並排 (100% / 3) */
+  .blue-item {
+    background-color: #63c2d1;
+    flex: 1; /* 自動分配空間 */
+    min-width: 100px; /* 防止縮得太小 */
     height: 150px;
   }
 
-  /* 中間藍色區塊：預設 3 欄 (扣掉 gap 約 32%) */
-  .blue-box {
-    background-color: #63c2d1;
-    flex: 1; /* 平分剩餘空間 */
-    min-width: 30%; 
-  }
-
-  /* 下方淺灰區塊：預設 4 欄 */
-  .gray-box {
+  /* 3. 下方灰色區塊：大螢幕時四欄並排 (100% / 4) */
+  .gray-item {
     background-color: #f1f2f6;
     flex: 1;
-    min-width: 20%;
-    height: 60px;
+    height: 50px;
   }
 
-  /* 關鍵：當寬度小於 480px 時 (圖 a 狀態) */
+  /* --- 關鍵區域：當螢幕小於 480px (圖 a) --- */
   @media screen and (max-width: 480px) {
     .row {
-      flex-direction: column; /* 讓 Flex 轉向變成垂直 */
+      flex-direction: column; /* 強制所有東西變垂直排列 */
     }
-    .blue-box, .gray-box {
-      width: 100%; /* 強制寬度填滿 */
+
+    .blue-item, .gray-item {
+      width: 100%; /* 強制寬度變成 100% */
+      flex: none;  /* 關閉自動分配，改用 100% 寬度 */
+    }
+    
+    .green-header {
+        height: 100px;
     }
   }
 </style>
@@ -60,20 +66,20 @@
 
 <div class="container">
   <div class="row">
-    <div class="box header-box"></div>
+    <div class="box green-header"></div>
   </div>
 
   <div class="row">
-    <div class="box blue-box"></div>
-    <div class="box blue-box"></div>
-    <div class="box blue-box"></div>
+    <div class="box blue-item"></div>
+    <div class="box blue-item"></div>
+    <div class="box blue-item"></div>
   </div>
 
   <div class="row">
-    <div class="box gray-box"></div>
-    <div class="box gray-box"></div>
-    <div class="box gray-box"></div>
-    <div class="box gray-box"></div>
+    <div class="box gray-item"></div>
+    <div class="box gray-item"></div>
+    <div class="box gray-item"></div>
+    <div class="box gray-item"></div>
   </div>
 </div>
 
