@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * {
+    box-sizing: border-box;
+  }
+
+
+
+  /* 通用的 Row 設定：使用 Flexbox */
+  .row {
+    display: flex;
+    flex-wrap: wrap; /* 讓內容可以換行 */
+    gap: 10px;       /* 區塊之間的間距 */
+    margin-bottom: 10px;
+  }
+
+  /* 各個區塊的基礎樣式 */
+  .box {
+    height: 100px; /* 設定一個高度才看得到顏色 */
+    border-radius: 5px;
+  }
+
+  /* 綠色頂部：永遠 100% */
+  .header-box {
+    width: 100%;
+    background-color: #badc58;
+    height: 150px;
+  }
+
+  /* 中間藍色區塊：預設 3 欄 (扣掉 gap 約 32%) */
+  .blue-box {
+    background-color: #63c2d1;
+    flex: 1; /* 平分剩餘空間 */
+    min-width: 30%; 
+  }
+
+  /* 下方淺灰區塊：預設 4 欄 */
+  .gray-box {
+    background-color: #f1f2f6;
+    flex: 1;
+    min-width: 20%;
+    height: 60px;
+  }
+
+  /* 關鍵：當寬度小於 480px 時 (圖 a 狀態) */
+  @media screen and (max-width: 480px) {
+    .row {
+      flex-direction: column; /* 讓 Flex 轉向變成垂直 */
+    }
+    .blue-box, .gray-box {
+      width: 100%; /* 強制寬度填滿 */
+    }
+  }
+</style>
+</head>
+<body> 
+
+<div class="container">
+  <div class="row">
+    <div class="box header-box"></div>
+  </div>
+
+  <div class="row">
+    <div class="box blue-box"></div>
+    <div class="box blue-box"></div>
+    <div class="box blue-box"></div>
+  </div>
+
+  <div class="row">
+    <div class="box gray-box"></div>
+    <div class="box gray-box"></div>
+    <div class="box gray-box"></div>
+    <div class="box gray-box"></div>
+  </div>
+</div>
+
+</body>
+</html>
