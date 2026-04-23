@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html>
 <head>
+<meta charset="UTF-8">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { font-family: "Roboto", sans-serif; padding: 20px; background-color: #f0f0f0; }
+  body { font-family: sans-serif; padding: 50px; background-color: #f0f0f0; }
 
   /* 面板主容器 */
   .panel {
-    width: 496px; /* 根據圖片標註的寬度 */
+    width: 496px; 
     background-color: white;
     border: 1px solid #ddd;
-    position: relative;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
   }
 
-  /* 頂部 Header 區塊 */
+  /* 核心功能：隱藏的勾選框 */
+  #toggle-check {
+    display: none;
+  }
+
+  /* 頂部 Header */
   .panel-header {
-    height: 35px; /* 圖片標註的高度 */
+    height: 35px;
     background-color: #f6f6f6;
     display: flex;
     align-items: center;
@@ -26,67 +32,67 @@
 
   .title { font-size: 13px; color: #707070; }
 
-  /* 隱藏的核取方塊 (功能開關) */
-  #toggle-check { display: none; }
-
-  /* 按鈕樣式 (精確遵照 h22/R8 規範) */
+  /* 按鈕樣式 (h22/R8) */
   .btn-info {
     height: 22px;
     border-radius: 8px;
     border: 1px solid #2f2f2f;
     background-color: #ffffff;
-    color: #2f2f2f;
     font-size: 13px;
     padding: 0 12px;
     cursor: pointer;
     display: flex;
     align-items: center;
-    line-height: 1;
+    user-select: none;
   }
-
-  /* 按鈕文字切換邏輯 */
-  .text-close { display: none; }
-  #toggle-check:checked + .btn-info .text-open { display: none; }
-  #toggle-check:checked + .btn-info .text-close { display: inline; }
 
   /* 圖片區域 */
   .image-container {
-    padding: 20px 0; /* 模擬圖片標註的上下間距 */
+    padding: 20px;
     text-align: center;
-    background-color: #fff;
   }
 
   .main-img {
     width: 450px;
     height: 240px;
+    background-color: #ddd; /* 沒圖片時顯示灰色塊 */
     object-fit: cover;
-    display: block;
-    margin: 0 auto;
   }
 
   /* 展開的資訊面板 (預設隱藏) */
   .info-details {
-    display: none;
+    display: none; /* 初始隱藏 */
     padding: 15px;
     background-color: #f3f3f3;
     border-top: 1px solid #eaeaea;
     font-size: 13px;
-    color: #2f2f2f;
   }
 
-  /* 當開關被勾選時，顯示資訊面板 */
+  /* --- 關鍵觸發邏輯 --- */
+
+  /* 1. 當勾選時，顯示資訊面板 (使用 ~ 符號) */
   #toggle-check:checked ~ .info-details {
     display: block;
+  }
+
+  /* 2. 當勾選時，切換按鈕文字內容 */
+  .text-close { display: none; }
+  #toggle-check:checked ~ .panel-header .text-open { display: none; }
+  #toggle-check:checked ~ .panel-header .text-close { display: inline; }
+
+  /* 3. 當勾選時，按鈕變色 (選配，增加互動感) */
+  #toggle-check:checked ~ .panel-header .btn-info {
+    background-color: #eee;
   }
 </style>
 </head>
 <body>
 
   <div class="panel">
+    <input type="checkbox" id="toggle-check">
+
     <div class="panel-header">
       <span class="title">預覽</span>
-      
-      <input type="checkbox" id="toggle-check">
       <label for="toggle-check" class="btn-info">
         <span class="text-open">查看資訊</span>
         <span class="text-close">收起資訊</span>
@@ -98,9 +104,12 @@
     </div>
 
     <div class="info-details">
+      <strong>詳細資訊</strong>
+      <hr style="margin: 10px 0; border: 0; border-top: 1px solid #ccc;">
       <p>修改日期：2017/10/12</p>
       <p>檔案類型：JPG</p>
-      <p>尺寸：466.97KB</p>
+      <p>尺寸大小：466.97KB</p>
+      <p>存放路徑：\\common-module\slice\sample</p>
     </div>
   </div>
 
