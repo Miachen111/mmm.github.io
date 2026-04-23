@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html>
 <style>
+
+.top-panel{
+    background-color: #a5a0a0;
+    height: 35px;
+    width: 496px;
+    padding: 15px;
+
+}
+
+p.title{
+    color:#535050;
+    font-size: 13px;
+    font-family: 'roboto';
+}
+
 input[type=button]{
     background-color:#ffffff;
     border: 1px solid #2f2f2f;
@@ -12,7 +27,22 @@ input[type=button]{
 
 
 }
-p.panel {
+
+.block{
+    width: 496px;
+    height: 240px;
+    padding: 20px;
+    background-color: white;
+    position: relative;
+}
+
+.img{
+    width: 450px;
+    height: 240px;
+    object-fit: cover;
+}
+
+p.later {
   position: absolute;
   right: 20px;
   bottom: 20px;
@@ -22,11 +52,33 @@ p.panel {
   padding: 10px;
   font-size: 13px;
   line-height: 1.6;
+  display:none;
 }
+
+#toggle-check:checked ~ .info-details {
+    display: block;
+  }
 
 </style>
 <body>
-    <button class="button">查看資訊</button>
+
+    <div class="top-panel">
+        <div class="title">預覽</div>
+        <input type="checkbox" id="toggle-check">
+      <label for="toggle-check" class="btn-info">
+        <span class="text-open">查看資訊</span>
+        <span class="text-close">收起資訊</span>
+      </label>
+    </div>
+        
+            
+    <div class="block">
+        <img class="img"src="https://www.w3schools.com/css/paris.jpg"></div>
+
+    </div>
+    
+
+    
 
     <div class="panel">
         <p>修改日期：2017/10/12</p>

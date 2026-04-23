@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: "Roboto", sans-serif; padding: 20px; background-color: #f0f0f0; }
+
+  /* 面板主容器 */
+  .panel {
+    width: 496px; /* 根據圖片標註的寬度 */
+    background-color: white;
+    border: 1px solid #ddd;
+    position: relative;
+  }
+
+  /* 頂部 Header 區塊 */
+  .panel-header {
+    height: 35px; /* 圖片標註的高度 */
+    background-color: #f6f6f6;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 15px;
+    border-bottom: 1px solid #eaeaea;
+  }
+
+  .title { font-size: 13px; color: #707070; }
+
+  /* 隱藏的核取方塊 (功能開關) */
+  #toggle-check { display: none; }
+
+  /* 按鈕樣式 (精確遵照 h22/R8 規範) */
+  .btn-info {
+    height: 22px;
+    border-radius: 8px;
+    border: 1px solid #2f2f2f;
+    background-color: #ffffff;
+    color: #2f2f2f;
+    font-size: 13px;
+    padding: 0 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    line-height: 1;
+  }
+
+  /* 按鈕文字切換邏輯 */
+  .text-close { display: none; }
+  #toggle-check:checked + .btn-info .text-open { display: none; }
+  #toggle-check:checked + .btn-info .text-close { display: inline; }
+
+  /* 圖片區域 */
+  .image-container {
+    padding: 20px 0; /* 模擬圖片標註的上下間距 */
+    text-align: center;
+    background-color: #fff;
+  }
+
+  .main-img {
+    width: 450px;
+    height: 240px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+  }
+
+  /* 展開的資訊面板 (預設隱藏) */
+  .info-details {
+    display: none;
+    padding: 15px;
+    background-color: #f3f3f3;
+    border-top: 1px solid #eaeaea;
+    font-size: 13px;
+    color: #2f2f2f;
+  }
+
+  /* 當開關被勾選時，顯示資訊面板 */
+  #toggle-check:checked ~ .info-details {
+    display: block;
+  }
+</style>
+</head>
+<body>
+
+  <div class="panel">
+    <div class="panel-header">
+      <span class="title">預覽</span>
+      
+      <input type="checkbox" id="toggle-check">
+      <label for="toggle-check" class="btn-info">
+        <span class="text-open">查看資訊</span>
+        <span class="text-close">收起資訊</span>
+      </label>
+    </div>
+
+    <div class="image-container">
+      <img src="https://via.placeholder.com/450x240" alt="Preview" class="main-img">
+    </div>
+
+    <div class="info-details">
+      <p>修改日期：2017/10/12</p>
+      <p>檔案類型：JPG</p>
+      <p>尺寸：466.97KB</p>
+    </div>
+  </div>
+
+</body>
+</html>
