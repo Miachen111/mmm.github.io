@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+    #demo{
+        font-size: 25px;
+    }
+    button{
+        padding: 2px;
+    }
+
+</style>
+<body>
+    <p id="demo">Hello</p>
+    <button type="button" onmouseover="myfunction1()" onclick="myfunction2()">Button</button>
+
+
+    <script>
+        function myfunction1(){
+            var x= document.getElementById("demo")
+            x.innerHTML="Hello";
+            x.style.color="fuchsia";         
+        }
+        function myfunction2(){
+            var x= document.getElementById("demo")
+            x.innerHTML="Mouse Click";
+            x.style.color="fuchsia";  
+        }
+    </script>
+</body>
+</html>
