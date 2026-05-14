@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* 這裡是所有區塊共同的 Row 設定 */
+  .row {
+    display: flex;
+    flex-wrap: wrap; 
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+  }
+
+  /* 區塊基礎樣式 */
+  .box {
+    border-radius: 4px;
+  }
+
+  /* 1. 綠色區塊 (100%) */
+  .green {
+    width: 100%;
+    background-color: #badc58;
+    height: 150px;
+  }
+
+  /* 2. 藍色區塊 (預設並排) */
+  .blue {
+    background-color: #63c2d1;
+    flex: 1; 
+    height: 200px;
+  }
+
+  /* 3. 灰色區塊 (預設並排) */
+  .gray {
+    background-color: #f1f2f6;
+    flex: 1;
+    height: 60px;
+  }
+
+  /* --- 關鍵：當寬度小於 480px 時切換佈局 --- */
+  @media screen and (max-width: 480px) {
+    .row {
+      flex-direction: column; /* 從橫向變垂直 */
+    }
+
+    .blue, .gray {
+      width: 100%; /* 寬度強制撐滿 */
+      flex: none;  /* 關閉彈性分配 */
+    }
+  }
+</style>
+</head>
+<body> 
+
+  <div class="row">
+    <div class="box green"></div>
+  </div>
+
+  <div class="row">
+    <div class="box blue"></div>
+    <div class="box blue"></div>
+    <div class="box blue"></div>
+  </div>
+
+  <div class="row">
+    <div class="box gray"></div>
+    <div class="box gray"></div>
+    <div class="box gray"></div>
+    <div class="box gray"></div>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column1{
+    width: 100%;
+}
+
+/* Create four equal columns that floats next to each other */
+.column2 {
+  float: left;
+  width: 33%;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row2:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.column3{
+  width:50%;
+  padding: 20px;
+}
+.row3{
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* On screens that are 992px wide or less, go from four columns to two columns */
+@media screen and (max-width: 480px) {
+  .column {
+    width: 50%;
+  }
+}
+
+/* On screens that are 600px wide or less, make the columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 480px) {
+  .column {
+    width: 100%;
+  }
+}
+</style>
+</head>
+<body> 
+<div class="column1" style="background-color: greenyellow;">
+
+<div class="row2">
+  <div class="column2" style="background-color:#3bdce1">
+  </div>
+  
+  <div class="column2" style="background-color:#3bdce1">
+  </div>
+  
+  <div class="column2" style="background-color:#3bdce1">
+  </div>
+  
+</div>
+<div class="row3">
+  <div class="column3" style="background-color:#c9e0e1">
+  </div>
+
+  <div class="column3" style="background-color:#c9e0e1">
+  </div>
+
+  <div class="column3" style="background-color:#c9e0e1">
+  </div>
+
+  <div class="column3" style="background-color:#c9e0e1">
+  </div>
+
+</div>
+
+</body>
+</html>

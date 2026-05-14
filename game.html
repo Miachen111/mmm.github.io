@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>旅遊消費挑戰賽</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+<body>
+
+    <div id="balance-container">
+        今日餘額：$<span id="balance">0</span>
+    </div>
+
+    <div class="game-container">
+        <div id="quiz-card">
+            <h2 id="question-text">載入中...</h2>
+            <div id="options-container">
+                </div>
+        </div>
+        
+        <div id="result-card" class="hidden">
+            <h2>今日結算</h2>
+            <p id="final-status"></p>
+            <button onclick="location.reload()">再玩一次</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
