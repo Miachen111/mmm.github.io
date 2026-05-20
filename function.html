@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <p id="round-result">The circumference is NN</p>
+    <p id="area-result">The area is NN</p>
+
+    <script>
+        const circle={
+
+            calcCircumference: function(radius=5){
+                var result= 2*Math.PI*radius;
+                document.getElementById("round-result").innerHTML = 
+                "The circumference is " + result;
+                return result;
+            },
+
+            calcArea: function(radius=5){
+                var result= Math.PI*radius*radius;
+                document.getElementById("area-result").innerHTML = 
+                "The area is " + result;
+                return result;
+            }
+
+        };
+        circle.calcCircumference();
+        circle.calcArea();
+        
+
+        
+        
+
+
+    </script>
+
+</body>
+</html>
+
